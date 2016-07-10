@@ -66,13 +66,18 @@ body {
 	float: right;
 }
 .workspace-image {
+	height: 100%;
+	width: 100%;
+}
+
+.workspace-image-container {
 	position: absolute;
 	min-height: 200px;
 	min-width: 200px;
 	box-sizing: border-box;
 }
 
-.selected-workspace-image {
+.selected-workspace-image-container {
 	border: 4px solid #0599f1;
 }
 
@@ -98,4 +103,13 @@ body {
 
 .resize-control-nesw {
 	cursor: nesw-resize;
+}
+
+.rotate-control {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	border: 1px solid #000;
+	background-color: #fff;
+	position: absolute;
 }
