@@ -67,6 +67,35 @@ body {
 }
 .workspace-image {
 	position: absolute;
-	max-height: 200px;
-	max-width: 200px;
+	min-height: 200px;
+	min-width: 200px;
+	box-sizing: border-box;
+}
+
+.selected-workspace-image {
+	border: 4px solid #0599f1;
+}
+
+.resize-control {
+	width: 5px;
+	height: 5px;
+	border: 1px solid #000;
+	background: #fff;
+	position: absolute;
+}
+
+.resize-control-ew {
+	cursor: ew-resize;
+}
+
+.resize-control-ns {
+	cursor: ns-resize;
+}
+
+.resize-control-nwse {
+	cursor: nwse-resize;
+}
+
+.resize-control-nesw {
+	cursor: nesw-resize;
 }
