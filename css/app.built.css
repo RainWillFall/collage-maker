@@ -53,8 +53,8 @@
 }
 
 .gallery-image {
-	width: 200px;
-	height: 200px;
+	max-width: 200px;
+	max-height: 200px;
 	margin: 25px 0 0 25px;
 }
 body {
@@ -64,4 +64,9 @@ body {
 
 .float-right {
 	float: right;
+}
+.workspace-image {
+	position: absolute;
+	max-height: 200px;
+	max-width: 200px;
 }

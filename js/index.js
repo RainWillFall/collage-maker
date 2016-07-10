@@ -3,9 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	var workspaceElement = document.getElementsByClassName('workspace')[0];
 	var galleryImagesElement = document.getElementsByClassName('gallery-images')[0];
 	workspaceElement.style.height = window.innerHeight - 250 + 'px';
-	workspaceElement.addEventListener('dragenter', handleDragEnter);
 	workspaceElement.addEventListener('dragover', handleDragOver);
-	workspaceElement.addEventListener('dragend', handleDragEnd);
 	workspaceElement.addEventListener('drop', handleDrop);
 	var currentDraggedElement;
 
@@ -29,17 +27,12 @@ document.addEventListener('DOMContentLoaded', function() {
 		e.dataTransfer.setData("src", this.src);
 	}
 
-	function handleDragEnter(e) {
-		
-	} 
-
-	function handleDragEnd(e) {
-		console.log(e);
-	}
-
 	function handleDrop(e) {
 		var src = e.dataTransfer.getData('src');
 		var workspaceImg = document.createElement('img');
+		workspaceImg.style["left"] = e.clientX + 'px';
+		workspaceImg.style["top"] = e.clientY + 'px';
+		workspaceImg.classList.add('workspace-image');
 		workspaceImg.src = src;
 		this.appendChild(workspaceImg);
 		currentDraggedElement.remove();

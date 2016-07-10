@@ -3,11 +3,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	var workspaceElement = document.getElementsByClassName('workspace')[0];
 	var galleryImagesElement = document.getElementsByClassName('gallery-images')[0];
 	workspaceElement.style.height = window.innerHeight - 250 + 'px';
-	workspaceElement.addEventListener('dragenter', handleDragEnter);
 	workspaceElement.addEventListener('dragover', handleDragOver);
-	workspaceElement.addEventListener('dragend', handleDragEnd);
 	workspaceElement.addEventListener('drop', handleDrop);
-	var currentDraggedElement;
+	var currentDraggedElement, offsetMouseClickX, offsetMouseClickY;
 
 	function handleUploadedFile(evt) {
 		var newImageForGallery = evt.target.files[0];
@@ -24,22 +22,21 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 
 	function handleDragStart(e) {
+		var imageCoordinates = this.getBoundingClientRect();
+		offsetMouseClickX = e.clientX - imageCoordinates.left;
+		offsetMouseClickY = e.clientY - imageCoordinates.top; 
 		currentDraggedElement = this;
 		e.dataTransfer.effectAllowed = "move";
 		e.dataTransfer.setData("src", this.src);
 	}
 
-	function handleDragEnter(e) {
-		
-	} 
-
-	function handleDragEnd(e) {
-		console.log(e);
-	}
-
 	function handleDrop(e) {
 		var src = e.dataTransfer.getData('src');
+		console.log(offsetMouseClickX);
 		var workspaceImg = document.createElement('img');
+		workspaceImg.style["left"] = e.clientX - offsetMouseClickX + 'px';
+		workspaceImg.style["top"] = e.clientY - offsetMouseClickY + 'px';
+		workspaceImg.classList.add('workspace-image');
 		workspaceImg.src = src;
 		this.appendChild(workspaceImg);
 		currentDraggedElement.remove();
