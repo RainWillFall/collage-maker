@@ -1,0 +1,26 @@
+{
+  "name": "collage-maker",
+  "version": "1.0.0",
+  "description": "simple collage maker where you can select, resize and rotate images onto a workspace",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tarun-dugar/collage-maker.git"
+  },
+  "keywords": [
+    "collage"
+  ],
+  "author": "Tarun Dugar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tarun-dugar/collage-maker/issues"
+  },
+  "homepage": "https://github.com/tarun-dugar/collage-maker#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0"
+  }
+}
